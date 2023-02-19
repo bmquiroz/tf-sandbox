@@ -19,7 +19,7 @@ module "base-infra" {
   source                     = "../../modules/core"
   env                        = "sandbox"
   application                = "rcits"
-  # uai                        = "327"
+  uai                        = "123"
   aws_region                 = "us-east-1"
   aws_availability_zones     = ["us-east-1a","us-east-1b"]
   vpc_cidr                   = "10.0.0.0/16"
@@ -43,7 +43,7 @@ module "base-infra" {
 #   source                     = "../../modules/eks"
 #   env                        = "sandbox"
 #   application                = "rcits"
-#   # uai                        = "327"
+#   uai                        = "123"
 #   aws_region                 = "us-east-1"
 #   aws_availability_zones     = ["us-east-1a","us-east-1b"]
 #   subnet_ids                 = module.base-infra.aws-subnet-compute-id
@@ -117,7 +117,7 @@ module "bastion-host" {
   source                     = "../../modules/bastion_ec2"
   env                        = "sandbox"
   application                = "rcits"
-  # uai                        = "327"
+  uai                        = "123"
   # aws_region                 = "us-east-1"
   aws_subnet_compute_id      = module.base-infra.aws-subnet-compute-id
   aws_vpc_main_id            = module.base-infra.aws-vpc-main-id
