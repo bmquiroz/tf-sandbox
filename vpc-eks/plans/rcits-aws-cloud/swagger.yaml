@@ -1,0 +1,658 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2021-08-09T07:48:40Z",
+    "title": "Admin API"
+  },
+  "host": "",
+  "basePath": "/eng",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/organization": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/organization/status": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/organization/system": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"body\" : $input.json('$'),\r\n    \"method\": \"$context.httpMethod\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"body\" : $input.json('$'),\r\n    \"method\": \"$context.httpMethod\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"body\" : $input.json('$'),\r\n    \"method\": \"$context.httpMethod\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/organization/system/{systemid}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "systemid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"systemId\": \"$input.params('systemid')\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/organization/user": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestParameters": {
+            "integration.request.querystring.userid": "method.request.querystring.userid"
+          },
+          "requestTemplates": {
+            "application/json": "#set($inputRoot = $input.path('$'))\r\n{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"userId\":\"$input.params('userid')\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"body\" : $input.json('$'),\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/organization/user/{orgid}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orgid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"orgId\": \"$input.params('orgid')\"\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/organization/{orgid}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orgid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "gehc-pia-eng-3jyigk-authorizelambda": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\r\n    \"path\":\"$context.resourcePath\",\r\n    \"method\": \"$context.httpMethod\",\r\n    \"orgId\": \"$input.params('orgid')\",\r\n    \"headers\": {\r\n        #foreach($param in $input.params().header.keySet())\r\n        \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\"\r\n        #if($foreach.hasNext),#end\r\n        #end\r\n    }\r\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "gehc-pia-eng-3jyigk-authorizelambda": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "x-amazon-apigateway-authtype": "custom",
+      "x-amazon-apigateway-authorizer": {
+        "authorizerUri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:839581304844:function:gehc-pia-eng-3jyigk-usermanagementlambda/invocations",
+        "authorizerResultTtlInSeconds": 300,
+        "type": "token"
+      }
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}
