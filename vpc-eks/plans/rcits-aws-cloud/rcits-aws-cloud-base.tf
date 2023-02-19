@@ -39,27 +39,27 @@ module "base-infra" {
                                 }
 }
 
-# module "eks-cluster" {
-#   source                     = "../../modules/eks"
-#   env                        = "sandbox"
-#   application                = "rcits"
-#   uai                        = "123"
-#   aws_region                 = "us-east-1"
-#   aws_availability_zones     = ["us-east-1a","us-east-1b"]
-#   subnet_ids                 = module.base-infra.aws-subnet-compute-id
-#   vpc_id                     = module.base-infra.aws-vpc-main-id
-#   instance_type              = "m6a.large"
-#   tagging_standard           =  {
-#                                 "deployment"  = "sandbox"
-#                                 "tag1" = "tag1"
-#                                 "tag2" = "tag2"
-#                                 }
-#   security_group             = module.base-infra.eks-sg-id
+module "eks-cluster" {
+  source                     = "../../modules/eks"
+  env                        = "sandbox"
+  application                = "rcits"
+  uai                        = "123"
+  aws_region                 = "us-east-1"
+  aws_availability_zones     = ["us-east-1a","us-east-1b"]
+  subnet_ids                 = module.base-infra.aws-subnet-compute-id
+  vpc_id                     = module.base-infra.aws-vpc-main-id
+  instance_type              = "m6a.large"
+  tagging_standard           =  {
+                                "deployment"  = "sandbox"
+                                "tag1" = "tag1"
+                                "tag2" = "tag2"
+                                }
+  security_group             = module.base-infra.eks-sg-id
 
-#   depends_on = [
-#     module.base-infra
-#   ]
-# }
+  depends_on = [
+    module.base-infra
+  ]
+}
 
 # module "db" {
 #   source                     = "../../modules/rds"

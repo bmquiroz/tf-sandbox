@@ -1,12 +1,13 @@
 data "aws_kms_key" "kms-key" {
-key_id = "d10fea54-118a-4f97-92ea-b22f419a79b5"
+key_id = "df8dbfa9-0294-431b-8a2a-2c4ed5ce2f90"
 }
 
 resource "aws_eks_cluster" "eks" {
+
   encryption_config {
     resources = ["secrets"]
     provider {
-      key_arn = "arn:aws:kms:us-east-1:653187539224:key/d10fea54-118a-4f97-92ea-b22f419a79b5"
+      key_arn = "arn:aws:kms:us-east-1:795345444371:key/df8dbfa9-0294-431b-8a2a-2c4ed5ce2f90"
     }
   }
   enabled_cluster_log_types = ["api", "authenticator", "audit", "scheduler", "controllerManager"]
