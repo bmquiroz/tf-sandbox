@@ -3,10 +3,10 @@ output "db-sg" {
 }
 
 output "db-endpoint" {
-value = aws_db_instance.atlas-db.address
+value = aws_db_instance.db.address
 
 }
 
 output "db-arn" {
-  value = aws_db_instance.atlas-db.arn
+  value = aws_db_instance.db.arn
 }

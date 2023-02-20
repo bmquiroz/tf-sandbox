@@ -61,36 +61,37 @@ module "eks-cluster" {
   ]
 }
 
-# module "db" {
-#   source                     = "../../modules/rds"
-#   env                        = "sandbox"
-#   application                = "rcits"
-#   uai                        = "327"
-#   aws_region                 = "us-east-1"
-#   db_allocated_storage       = "200"
-#   db_engine                  = "postgres"
-#   db_engine_version          = "14.1"
-#   db_identifier              = "rcitst-pg-db"
-#   db_instance_class          = "db.t4g.large"
-#   db_storage_type            = "gp2"
-#   db_name                    = "rcitstpgdb"
-#   db_password                = ""
-#   db_username                = "rcitsdba"
-#   aws_subnet_database_id     = module.base-infra.aws-subnet-database-id
-#   aws_vpc_main_id            = module.base-infra.aws-vpc-main-id
-#   # enabled_cloudwatch_logs_exports = var.rds_log
-#   # monitoring_role_arn        = var.rds_monitoring
-#   vpc_cidr                   = "10.0.0.0/16"
-#   tagging_standard           =  {
-#                                 "deployment"  = "sandbox"
-#                                 "tag1" = "tag1"
-#                                 "tag2" = "tag2"
-#                                 }
+module "db" {
+  source                     = "../../modules/rds"
+  env                        = "sandbox"
+  application                = "rcits"
+  uai                        = "327"
+  aws_region                 = "us-east-1"
+  db_allocated_storage       = "200"
+  db_engine                  = "postgres"
+  db_engine_version          = "14.1"
+  db_identifier              = "rcitst-pg-db"
+  # db_instance_class          = "db.t4g.large"
+  db_instance_class          = "db.t4g.small"
+  db_storage_type            = "gp2"
+  db_name                    = "rcitstpgdb"
+  db_password                = "Pazzw0rd123"
+  db_username                = "rcitsdba"
+  aws_subnet_database_id     = module.base-infra.aws-subnet-database-id
+  aws_vpc_main_id            = module.base-infra.aws-vpc-main-id
+  # enabled_cloudwatch_logs_exports = var.rds_log
+  # monitoring_role_arn        = var.rds_monitoring
+  vpc_cidr                   = "10.0.0.0/16"
+  tagging_standard           =  {
+                                "deployment"  = "sandbox"
+                                "tag1" = "tag1"
+                                "tag2" = "tag2"
+                                }
 
-#   depends_on = [
-#     module.base-infra
-#   ]
-# }
+  depends_on = [
+    module.base-infra
+  ]
+}
 
 # module "api-gateway" {
 #   source                     = "../../modules/api_gateway"

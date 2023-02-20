@@ -30,7 +30,7 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "bastion-profile" {
-  name = "rc-its-poc-ssm-ec2"
+  name = "rcits-poc-ssm-ec2"
   role = "${aws_iam_role.bastion-role.id}"
 }
 

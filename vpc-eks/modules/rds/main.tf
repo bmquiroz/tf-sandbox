@@ -1,4 +1,4 @@
-resource "aws_db_instance" "atlas-db" {
+resource "aws_db_instance" "db" {
   allocated_storage               = var.db_allocated_storage
   engine                          = var.db_engine
   engine_version                  = var.db_engine_version 
@@ -54,7 +54,7 @@ resource "aws_db_subnet_group" "db-subnet-group" {
 #   }
 # }
 
-# resource "aws_backup_selection" "atlas-db-backup" {
+# resource "aws_backup_selection" "db-backup" {
 #   iam_role_arn = var.iam_for_backup_plan
 #   name         = lower("${var.application}-${var.uai}-${lookup(var.tagging_standard, "deployment")}-db-backup")
 #   plan_id      = aws_backup_plan.database_rds.id
