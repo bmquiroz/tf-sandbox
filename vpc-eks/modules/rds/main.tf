@@ -18,7 +18,7 @@ resource "aws_db_instance" "db" {
   # enabled_cloudwatch_logs_exports = var.rds_log
   # monitoring_interval             = 5
   # monitoring_role_arn             = var.rds_monitoring
-  deletion_protection             = false
+  deletion_protection             = true
 
   tags = merge(
     var.tagging_standard, 
