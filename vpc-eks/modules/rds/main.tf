@@ -9,7 +9,7 @@ resource "aws_db_instance" "db" {
   name                            = var.db_name
   password                        = var.db_password
   username                        = var.db_username
-  final_snapshot_identifier       = true
+  # final_snapshot_identifier       = true
   backup_retention_period         = 35
   multi_az                        = true
   vpc_security_group_ids          = [aws_security_group.db-sg.id]
