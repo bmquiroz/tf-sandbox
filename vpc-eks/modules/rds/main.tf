@@ -9,7 +9,8 @@ resource "aws_db_instance" "db" {
   name                            = var.db_name
   password                        = var.db_password
   username                        = var.db_username
-  # final_snapshot_identifier       = true
+  # final_snapshot_identifier       =
+  skip_final_snapshot             = true
   backup_retention_period         = 35
   multi_az                        = true
   vpc_security_group_ids          = [aws_security_group.db-sg.id]
@@ -18,7 +19,7 @@ resource "aws_db_instance" "db" {
   # enabled_cloudwatch_logs_exports = var.rds_log
   # monitoring_interval             = 5
   # monitoring_role_arn             = var.rds_monitoring
-  deletion_protection             = true
+  deletion_protection             = false
 
   tags = merge(
     var.tagging_standard, 
