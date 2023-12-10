@@ -35,13 +35,13 @@ resource "aws_iam_instance_profile" "instance-profile" {
 }
 
 resource "aws_iam_policy_attachment" "instance-role-attach1" {
-  name       = "instance-ssm-attachment"
+  name       = "instance-ssm-attachment1"
   roles      = [aws_iam_role.instance-role.id]
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 resource "aws_iam_policy_attachment" "instance-role-attach2" {
-  name       = "instance-ssm-attachment"
+  name       = "instance-ssm-attachment2"
   roles      = [aws_iam_role.instance-role.id]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
 }

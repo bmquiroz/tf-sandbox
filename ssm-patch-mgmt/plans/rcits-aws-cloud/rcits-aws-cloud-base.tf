@@ -80,7 +80,7 @@ module "ssm-managed-host" {
   associate_public_ip_address = true
   tagging_standard            =  {
                                 "deployment"  = "sandbox"
-                                "tag1" = "tag1"
+                                "patch" = "yes"
                                 "tag2" = "tag2"
                                 }
   instance_ec2_settings       =  {
