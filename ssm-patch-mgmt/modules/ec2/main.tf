@@ -56,6 +56,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = [aws_security_group.instance-sg.id]
   subnet_id            = "${element(var.aws_subnet_compute_id,0)}"
   iam_instance_profile = "${aws_iam_instance_profile.instance-profile.id}"
+  associate_public_ip_address = var.associate_public_ip_address
   # user_data            = "${file("bootstrap.sh")}"
 
   # metadata_options {

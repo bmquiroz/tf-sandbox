@@ -30,3 +30,9 @@ variable "aws_key_pair" { type = string }
 variable "instance_ec2_settings" { type = map(any) }
 
 # variable "trusted_cidrs" { type = list }
+
+variable "associate_public_ip_address" {
+  description = "Whether to associate a public IP address with an instance in a VPC"
+  type        = bool
+  default     = null
+}
