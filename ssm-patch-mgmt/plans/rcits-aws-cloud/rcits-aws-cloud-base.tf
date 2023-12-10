@@ -73,7 +73,7 @@ module "ssm-managed-host" {
   application                = "rcits"
   uai                        = "123"
   # aws_region                 = "us-east-1"
-  aws_subnet_compute_id      = "subnet-047543b5ae3b70ee4"
+  aws_subnet_compute_id      = ["subnet-047543b5ae3b70ee4"]
   aws_vpc_main_id            = "vpc-03d790a49d55d25c2"
   aws_key_pair               = "rcits-poc-bastion-key"
   vpc_cidr                   = "10.0.0.0/16"
@@ -90,7 +90,7 @@ module "ssm-managed-host" {
                                 "volume_type" = "gp2"
                                 }
 
-  depends_on = [
-    module.base-infra
-  ]
+  # depends_on = [
+  #   module.base-infra
+  # ]
 }
