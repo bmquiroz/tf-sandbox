@@ -75,7 +75,7 @@ module "ssm-managed-host" {
   # aws_region                 = "us-east-1"
   aws_subnet_compute_id       = ["subnet-047543b5ae3b70ee4"]
   aws_vpc_main_id             = "vpc-03d790a49d55d25c2"
-  aws_key_pair                = "rcits-poc-bastion-key"
+  aws_key_pair                = "rcits-poc-key1"
   vpc_cidr                    = "10.0.0.0/16"
   associate_public_ip_address = true
   tagging_standard            =  {
