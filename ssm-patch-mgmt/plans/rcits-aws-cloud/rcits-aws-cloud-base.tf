@@ -73,7 +73,7 @@ module "ssm-managed-host" {
 }
 
 module "ssm-patch-manager" {
-  source                      = "../../modules/ssm-patch-mgmt"
+  source                      = "../../modules/ssm_patch_mgr"
   scan_schedule               = "0 0 6 * * *"
   log_bucket                  = "rcits-patch-logs"
 }
