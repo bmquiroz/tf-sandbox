@@ -75,5 +75,6 @@ module "ssm-managed-host" {
 module "ssm-patch-manager" {
   source                      = "../../modules/ssm_patch_mgr"
   scan_schedule               = "0 0 6 * * *"
+  install_schedule            = "0 0 6 * * *"
   log_bucket                  = "rcits-patch-logs"
 }
