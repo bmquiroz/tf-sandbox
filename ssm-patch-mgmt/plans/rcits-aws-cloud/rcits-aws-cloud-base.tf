@@ -15,30 +15,6 @@ provider "aws" {
 #     }
 }
 
-# module "base-infra" {
-#   source                     = "../../modules/core"
-#   env                        = "sandbox"
-#   application                = "rcits"
-#   uai                        = "123"
-#   aws_region                 = "us-east-1"
-#   aws_availability_zones     = ["us-east-1a","us-east-1b"]
-#   vpc_cidr                   = "10.0.0.0/16"
-#   log_s3                     = "arn:aws:s3:::rcits-poc"
-#   ip_subnets                 =  {
-#                                 "subnet_public0"  = "10.0.0.0/24"
-#                                 "subnet_public1"  = "10.0.1.0/24"
-#                                 "subnet_database0" = "10.0.2.0/24"
-#                                 "subnet_database1" = "10.0.3.0/24"
-#                                 "subnet_compute0" = "10.0.4.0/24"
-#                                 "subnet_compute1" = "10.0.5.0/24"
-#                                 }
-#   tagging_standard           =  {
-#                                 "deployment"  = "sandbox"
-#                                 "tag1" = "tag1"
-#                                 "tag2" = "tag2"
-#                                 }
-# }
-
 # module "bastion-host" {
 #   source                     = "../../modules/ec2"
 #   env                        = "sandbox"
@@ -94,4 +70,10 @@ module "ssm-managed-host" {
   # depends_on = [
   #   module.base-infra
   # ]
+}
+
+module "ssm-patch-manager" {
+  source                      = "../../modules/ssm-patch-mgmt"
+  scan_schedule               = "0 0 6 * * *"
+  log_bucket                  = "rcits-patch-logs"
 }
