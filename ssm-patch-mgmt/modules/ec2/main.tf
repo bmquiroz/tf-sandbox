@@ -11,7 +11,7 @@
 # }
 
 resource "aws_iam_role" "instance-role" {
-  name = "rc-its-poc-ssm-ec2"
+  name = "rcits-poc-ssm-ec2"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -34,16 +34,22 @@ resource "aws_iam_instance_profile" "instance-profile" {
   role = "${aws_iam_role.instance-role.id}"
 }
 
-resource "aws_iam_policy_attachment" "instance-role-attach1" {
+resource "aws_iam_policy_attachment" "instance-policy-attach1" {
   name       = "instance-ssm-attachment1"
   roles      = [aws_iam_role.instance-role.id]
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_iam_policy_attachment" "instance-role-attach2" {
+resource "aws_iam_policy_attachment" "instance-policy-attach2" {
   name       = "instance-ssm-attachment2"
   roles      = [aws_iam_role.instance-role.id]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+}
+
+resource "aws_iam_policy_attachment" "instance-policy-attach3" {
+  name       = "instance-ssm-attachment3"
+  roles      = [aws_iam_role.instance-role.id]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
 resource "aws_instance" "instance" {
