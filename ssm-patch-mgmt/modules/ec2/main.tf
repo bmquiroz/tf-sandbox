@@ -11,7 +11,7 @@
 # }
 
 resource "aws_iam_role" "instance-role" {
-  name = "rcits-poc-ssm-ec2"
+  name = "rcits-poc-ssm-ec2-role"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -30,7 +30,7 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "instance-profile" {
-  name = "rcits-poc-ssm-ec2"
+  name = "rcits-poc-ssm-ec2-profile"
   role = "${aws_iam_role.instance-role.id}"
 }
 
